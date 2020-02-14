@@ -7,7 +7,6 @@ class DateConverter {
     }
     func convertDateFromUTC(dt: Int) -> Date {
         let utcDate = Date(timeIntervalSince1970: TimeInterval(dt))
-//        let utcDate = convertDate(from: string)
         return utcDate.addingTimeInterval(self.timezone)
     }
     private func convertDate(from string: String) -> Date {

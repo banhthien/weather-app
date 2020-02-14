@@ -3,6 +3,7 @@ import Foundation
 typealias WeatherCompletionHandler = (WeatherData?, ServiceError?) -> Void
 
 class OpenWeatherMapService {
+    // get data from server
     static func retrieveWeatherInfo(using location: Location, completionHandler: @escaping WeatherCompletionHandler) {
         guard let url = getWeatherForecastURL(using: location) else {
             let error = ServiceError.urlError
@@ -30,11 +31,13 @@ class OpenWeatherMapService {
         }
         task.resume()
     }
+    // get URL
     static func getWeatherForecastURL(using location: Location) -> URL? {
         var urlComponents = URLComponents(string: WeatherAPI.forecastURL)
         urlComponents?.queryItems = getQueryItems(from: location)
         return urlComponents?.url
     }
+    // create query URL
     static private func getQueryItems(from location: Location) -> [URLQueryItem] {
         var queryItems = [URLQueryItem]()
         let locIdQuery = URLQueryItem(name: "id", value: "\(location.locID)")
