@@ -45,6 +45,7 @@ class PageViewController: UIViewController {
         self.pageControl.currentPage = index
         self.lastViewedPageIndex = index
     }
+    // Remove view
     func userDeleteLocation(at deletingIndex: Int) {
         if self.lastViewedPageIndex == deletingIndex {
             self.lastViewedPageIndex = 0
@@ -56,10 +57,12 @@ class PageViewController: UIViewController {
         changeIndexOfCachedWeatherViewControllers(after: deletingIndex)
         userDidSelectLocation(at: lastViewedPageIndex)
     }
+    // Remove Location obj
     private func removeLocation(at index: Int) {
         self.userLocationList.remove(at: index)
         self.cachedWeatherViewControllers.removeObject(forKey: NSNumber(value: index))
     }
+    // change Index Of Cached Weather
     private func changeIndexOfCachedWeatherViewControllers(after deletingIndex: Int) {
         var needChangeIndex = deletingIndex + 1
         repeat {
