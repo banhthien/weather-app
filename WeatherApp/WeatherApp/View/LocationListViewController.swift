@@ -53,7 +53,7 @@ extension LocationListViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LocationListTableViewCell.identifier, for: indexPath)
-
+        
         cell.selectionStyle = .none
         let location = UIAppDelegate.listLocation[indexPath.row]
         cell.textLabel?.text = location.name
@@ -64,7 +64,7 @@ extension LocationListViewController: UITableViewDataSource {
         }
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "City"
     }

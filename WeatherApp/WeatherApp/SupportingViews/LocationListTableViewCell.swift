@@ -11,5 +11,4 @@ class LocationListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         accessoryType = selected ? .checkmark : .none
     }
-    
 }
